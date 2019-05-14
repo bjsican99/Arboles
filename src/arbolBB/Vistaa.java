@@ -6,9 +6,7 @@ package arbolBB;
 
 
 import java.awt.BorderLayout;
-import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.Toolkit;
 import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
@@ -27,8 +25,6 @@ public class Vistaa extends javax.swing.JFrame {
     public Vistaa() {
         initComponents();
         this.inicializar(false);
-
-
     }
 
     private void inicializar(boolean enable) {
@@ -197,8 +193,8 @@ public class Vistaa extends javax.swing.JFrame {
 
     private void botonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
         try {
-            int dato = Integer.parseInt(txtdato.getText());
-            if (this.simulador.insertar(dato)) {
+            int dato = Integer.parseInt(txtdato.getText());//pasa el dato ingresado a entero
+            if (this.simulador.insertar(dato)) {//
                 JOptionPane.showMessageDialog(null, "El dato fue insertado correctamente", " ...", 1);
                 this.inicializar(true);
                 

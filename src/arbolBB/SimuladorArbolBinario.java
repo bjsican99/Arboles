@@ -1,7 +1,5 @@
-
 package arbolBB;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.JPanel;
 

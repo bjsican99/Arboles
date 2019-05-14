@@ -5,7 +5,6 @@
  */
 package arbolBB;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.JPanel;
 
@@ -32,19 +31,19 @@ public class ArbolBB {
     
     //Metodo para insertar un dato en el arbol...no acepta repetidos :)
     public void insertar(Nodo nuevo, Nodo pivote) {
-        if (this.raiz == null) {
+        if (this.raiz == null) {//si no hay nada en la raiz, el nuevo dato pasa a ser la raiz
             raiz = nuevo;
-        } else {
+        } else {//compra el nodo con un pivote, si es menor
             if (nuevo.getDato() <= pivote.getDato()) {
-                if (pivote.getIzq() == null) {
-                    pivote.setIzq(nuevo);
-                } else {
-                    insertar(nuevo, pivote.getIzq());
+                if (pivote.getIzq() == null) {//y si el lado izquierdo esta vacio
+                    pivote.setIzq(nuevo);//el sub arbol izquierdo tendra el nodo
+                } else {//de lo contrario
+                    insertar(nuevo, pivote.getIzq());//se usa la recursividad con el nodo nuevo, y el pivote
                 }
-            } else {
-                if (pivote.getDer() == null) {
-                    pivote.setDer(nuevo);
-                } else {
+            } else {//de lo contrario si es mayou
+                if (pivote.getDer() == null) {//y si el sub arbol derecho vacio
+                    pivote.setDer(nuevo);//se inserta en el sub arbol derecho
+                } else {//de lo contrario usa la recursividad para 
                     insertar(nuevo, pivote.getDer());
                 }
             }
@@ -52,11 +51,11 @@ public class ArbolBB {
 
     }
 
-    public Nodo getRaiz() {
+    public Nodo getRaiz() {//obtienes la raiz del nodo
         return raiz;
     }
 
-    public void setRaiz(Nodo raiz) {
+    public void setRaiz(Nodo raiz) {//asigna al nodo raiz
         this.raiz = raiz;
     }
 
