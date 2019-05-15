@@ -66,6 +66,11 @@ public class ArbolBB {
         return rec;
     }
     
+    //Metodo para recorrer el arbor postorden
+    //Verifica si el nodo auxiliar no esta apuntando null
+    //añade el nodo auxiliar a la lista
+    //obtiene el nodo del lado izquierdo y lo añade
+    //obtiene el nodo del lado derecho y lo añade
     public void preorden(Nodo aux, LinkedList recorrido) {
         if (aux != null) {
             recorrido.add(aux.getDato());
@@ -80,7 +85,12 @@ public class ArbolBB {
         inorden(raiz, rec);
         return rec;
     }
-    
+    //Metodo para recorrer el arbor inorden
+    //Verifica si el nodo auxiliar no esta apuntando null
+    //llama a la funcion inorden, con el nodo auxliar de lado izuierdo con una lista para obtener irlos almacenandolos
+    //obtiene el dato auxiliar
+    //añade la raiz a la lista.
+    //recorre el subarbol derecho, y lo guarda en recorrido
     public void inorden(Nodo aux, LinkedList recorrido) {
         if (aux != null) {
             inorden(aux.getIzq(), recorrido);
@@ -95,6 +105,12 @@ public class ArbolBB {
         postorden(raiz, rec);
         return rec;
     }
+    
+    //Metodo para recorrer el arbor postorden
+    //Verifica si el nodo auxiliar no esta apuntando null
+    //obtiene el ultimo nodo del lado izquierdo
+    //obtiene el nodo del sub arbol derecho
+    //se añade a la lista el nodo auxiliar
     public void postorden(Nodo aux, LinkedList recorrido) {
         if (aux != null) {
             postorden(aux.getIzq(), recorrido);
@@ -104,6 +120,12 @@ public class ArbolBB {
     }
 
     //Metodo para verificar si hay un nodo en el arbol
+    //crea un nodo que sera la raiz
+    //con un ciclo media vez el auxiliar no sea null se repite
+    //si el dato ingresado es el mismo que el dato existente, retorna true
+    //si el dato es mayor al dato, aux sera igual al nodo de la rama derecha
+    //de lo contrario sera igual al nodo de la rama izquierda
+    //de lo contrario retorna false
     public boolean existe(int dato) {
         Nodo aux = raiz;
         while (aux != null) {
@@ -118,6 +140,14 @@ public class ArbolBB {
         return false;
     }
 
+    
+    /*
+    obtiene un nivel y una variable entera
+    si esta el aux no esta apuntando a null
+    altura sera igual al nodo del lado izquierdo, y el nivel se le sumara uno
+    altura sera igual a nivel
+    algura se volvera a llamar del lado derecho y se le sumara uno al nivel
+    */
     private void altura(Nodo aux, int nivel) {
         if (aux != null) {
             altura(aux.getIzq(), nivel + 1);
@@ -132,7 +162,8 @@ public class ArbolBB {
         return alt;
     }
     
-     public JPanel getdibujo() {
+    //retorna el nuevo arbol de forma grafica
+    public JPanel getdibujo() {
         return new ArbolExpresionGrafico(this);
     }
 }

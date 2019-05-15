@@ -13,11 +13,13 @@ public class SimuladorArbolBinario {
 
     public SimuladorArbolBinario() {
     }
-
+    //agrega un nuevo nodo
     public boolean insertar(Integer dato) {
         return (this.miArbol.agregar(dato));
     }
     //metodo para mostrar los recorridos del arbol
+    //muestra los recorridos en los arboles que se guardaron en la linkedlist 
+    //en pre, in y post orden
     public String preOrden() {
         LinkedList it = this.miArbol.preOrden();
         return (recorrido(it, "Recorrido PreOrden"));

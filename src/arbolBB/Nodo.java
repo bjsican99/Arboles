@@ -5,8 +5,10 @@
  */
 package arbolBB;
 
-/**
- *
+/**crea la estructura de los datos
+ * un dato privado tipo entero
+ * nodo izquierdo y derecho
+ * asigna los valores obtenidos con lo de las estructuras
  * @author
  */
 public class Nodo {
@@ -19,6 +21,10 @@ public class Nodo {
         this.der = der;
     }
 
+    /*
+    los get debuelven el valor que contiene la estructura
+    y los set establecen los datos a la estructura, creando un nuevo nodo
+    */
     public int getDato() {
         return dato;
     }
